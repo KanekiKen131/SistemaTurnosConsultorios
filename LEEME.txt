@@ -28,7 +28,36 @@ Datos y respaldo
 La información se guarda en database.sqlite, junto a start.bat.
 Para respaldar, copie ese archivo cuando el sistema esté detenido.
 
-Pantalla de TV
---------------
-En otro equipo de la misma red:
-http://IP_DEL_SERVIDOR:8000/?action=pantalla
+Ver los turnos en un celular u otra pantalla (Windows)
+------------------------------------------------------
+La computadora Windows que ejecuta start.bat es el servidor.
+Debe quedar encendida y con la ventana negra abierta.
+
+1. Conecte el celular, tablet, TV u otra PC a la misma red Wi-Fi
+   o cable que la computadora Windows.
+2. En Windows, abra una terminal y escriba:
+
+       ipconfig
+
+   Busque "Dirección IPv4" del adaptador Wi-Fi o Ethernet.
+   Ejemplo: 192.168.1.50
+3. En el celular u otra pantalla, abra:
+
+       http://192.168.1.50:8000/?action=pantalla
+
+   Cambie 192.168.1.50 por la IP real.
+4. Presione "Pantalla completa" y "Activar sonido".
+5. La pantalla se actualiza cada 2 segundos.
+
+Si Windows pregunta si permite php.exe en la red, elija Red privada
+y permita el acceso. Si no abre, revise el Firewall de Windows y
+confirme que ambos equipos estén en la misma red.
+
+No use localhost ni 127.0.0.1 en el celular.
+No escriba IP_DEL_SERVIDOR; ese texto es solo un ejemplo.
+
+Para crear turnos desde otra PC, abra http://IP:8000/ e inicie
+sesión como recepción. Las cuentas están en este mismo LEEME.
+
+Si la IP cambia al reiniciar el router, vuelva a ejecutar ipconfig.
+Si el celular usa datos móviles u otra red, este método no funciona.
