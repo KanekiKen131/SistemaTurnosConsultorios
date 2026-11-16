@@ -75,22 +75,7 @@ Si otro equipo no puede abrir la dirección:
 
 ## Cuentas iniciales
 
-| Rol | Correo | Contraseña |
-|---|---|---|
-| Administrador | `admin@consultorio.local` | `Admin123!` |
-| Recepción | `recepcion@consultorio.local` | `Recepcion123!` |
-| Médico · Medicina general | `mg@consultorio.local` | `Medico123!` |
-| Médico · Medicina general | `mg2@consultorio.local` | `Medico123!` |
-| Médico · Pediatría | `pediatria@consultorio.local` | `Medico123!` |
-| Médico · Pediatría | `pediatria2@consultorio.local` | `Medico123!` |
-| Médico · Medicina interna | `mi@consultorio.local` | `Medico123!` |
-| Médico · Medicina interna | `mi2@consultorio.local` | `Medico123!` |
-| Médico · Odontología | `odontologia@consultorio.local` | `Medico123!` |
-| Médico · Odontología | `odontologia2@consultorio.local` | `Medico123!` |
-| Médico · Psicología | `psicologia@consultorio.local` | `Medico123!` |
-| Médico · Psicología | `psicologia2@consultorio.local` | `Medico123!` |
-
-Cambiar las contraseñas desde el módulo de administración después de la primera instalación.
+Las cuentas iniciales están documentadas en `LEEME.txt`, incluido en el paquete. Cambiar las contraseñas desde el módulo de administración después de la primera instalación.
 
 ## Usar varios roles a la vez
 
@@ -248,6 +233,6 @@ Al volver a iniciar, se crean el esquema y los usuarios iniciales.
 2. Abrir la pantalla TV en otra pestaña o equipo.
 3. Abrir una ventana privada e iniciar sesión como médico de Medicina general.
 4. Presionar **Llamar siguiente paciente** y verificar que la TV muestra `MG-01` en verde en un máximo de 2 segundos.
-5. Probar una especialidad distinta, por ejemplo Pediatría (`PEDI-01`), e iniciarla sesión con `pediatria@consultorio.local`.
+5. Probar una especialidad distinta, por ejemplo Pediatría (`PEDI-01`), e iniciar sesión con la cuenta de médico de Pediatría indicada en `LEEME.txt`.
 6. Presionar **Paciente ausente** y confirmar que se llama automáticamente al siguiente turno.
 7. Revisar el historial y el módulo de administración de usuarios.

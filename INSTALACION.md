@@ -101,22 +101,7 @@ La pantalla se actualiza cada 2 segundos y avisa con sonido y destello cuando se
 
 ## Cuentas iniciales
 
-| Rol | Correo | Contraseña |
-|---|---|---|
-| Administrador | `admin@consultorio.local` | `Admin123!` |
-| Recepción | `recepcion@consultorio.local` | `Recepcion123!` |
-| Médico · Medicina general | `mg@consultorio.local` | `Medico123!` |
-| Médico · Medicina general | `mg2@consultorio.local` | `Medico123!` |
-| Médico · Pediatría | `pediatria@consultorio.local` | `Medico123!` |
-| Médico · Pediatría | `pediatria2@consultorio.local` | `Medico123!` |
-| Médico · Medicina interna | `mi@consultorio.local` | `Medico123!` |
-| Médico · Medicina interna | `mi2@consultorio.local` | `Medico123!` |
-| Médico · Odontología | `odontologia@consultorio.local` | `Medico123!` |
-| Médico · Odontología | `odontologia2@consultorio.local` | `Medico123!` |
-| Médico · Psicología | `psicologia@consultorio.local` | `Medico123!` |
-| Médico · Psicología | `psicologia2@consultorio.local` | `Medico123!` |
-
-Cambiar las contraseñas desde el módulo de administración después de la primera instalación.
+Las cuentas iniciales están documentadas en `LEEME.txt`, incluido en el paquete. Cambiar las contraseñas desde el módulo de administración después de la primera instalación.
 
 ## Usar dos roles al mismo tiempo
 
