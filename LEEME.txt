@@ -1,0 +1,34 @@
+SISTEMA DE TURNOS PARA CONSULTORIOS
+====================================
+
+1. Descomprima este ZIP en una carpeta.
+2. Haga doble clic en start.bat.
+3. El navegador se abrirá en http://localhost:8000/
+
+No necesita instalar PHP ni Docker.
+
+Si Windows muestra un aviso de seguridad, permita la ejecución de start.bat.
+Si Windows solicita permiso para un componente de Visual C++, acepte una vez.
+
+Para detener el sistema, cierre la ventana negra del servidor.
+
+Cuentas iniciales
+-----------------
+Administrador: admin@consultorio.local / Admin123!
+Recepción:     recepcion@consultorio.local / Recepcion123!
+Médicos:       mg@consultorio.local, pediatria@consultorio.local,
+               mi@consultorio.local, odontologia@consultorio.local,
+               psicologia@consultorio.local y sus versiones "2".
+               Contraseña: Medico123!
+
+Para usar dos roles a la vez, abra una ventana privada o de incógnito.
+
+Datos y respaldo
+----------------
+La información se guarda en database.sqlite, junto a start.bat.
+Para respaldar, copie ese archivo cuando el sistema esté detenido.
+
+Pantalla de TV
+--------------
+En otro equipo de la misma red:
+http://IP_DEL_SERVIDOR:8000/?action=pantalla

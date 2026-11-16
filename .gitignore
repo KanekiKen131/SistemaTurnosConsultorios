@@ -3,4 +3,6 @@ database.sqlite-shm
 database.sqlite-wal
 .DS_Store
 dist/
+.cache/
+runtime/
 *.log

@@ -4,17 +4,27 @@ Sistema web desarrollado en **PHP con Programación Orientada a Objetos (POO)** 
 
 ## Requisitos
 
+Para el paquete portable de Windows no se requiere instalar nada: incluye PHP 8.5 x64, SQLite y el componente de Visual C++ necesario.
+
+Para ejecutar desde el código fuente:
+
 - PHP 8.1 o superior (probado con PHP 8.5)
-- Extensiones `pdo_sqlite` y `sqlite3`
+- Extensiones `pdo_sqlite`, `sqlite3` y `mbstring`
 - Un navegador moderno
 
 No requiere Composer ni servidor Apache: se ejecuta con el servidor integrado de PHP.
 
 ## Inicio rápido
 
-### Windows
+### Windows (paquete portable, recomendado)
 
-1. Instalar PHP 8.1 o superior y habilitar `pdo_sqlite` y `sqlite3`.
+1. Descomprimir `SistemaTurnosConsultorios-Windows-x64.zip`.
+2. Ejecutar `start.bat`. No es necesario instalar PHP.
+3. Abrir `http://localhost:8000/` (el navegador se abre automáticamente).
+
+### Windows con PHP instalado
+
+1. Instalar PHP 8.1 o superior y habilitar `pdo_sqlite`, `sqlite3` y `mbstring`.
 2. Abrir la carpeta del proyecto y ejecutar `start.bat`.
 3. Abrir `http://localhost:8000/` en el navegador.
 
@@ -139,9 +149,13 @@ config/
 public/
 ├── index.php      Front controller y router
 └── assets/        CSS y JavaScript
+runtime/php/       PHP 8.5 x64 incluido en el paquete portable para Windows
+portable/php.ini   Configuración usada por el PHP portable
 start.sh           Inicio en Linux / macOS
-start.bat          Inicio en Windows
-package.sh         Genera el ZIP instalable en dist/
+start.bat          Inicio en Windows (usa runtime\php si existe)
+build-portable.sh  Genera el ZIP portable de Windows en dist/
+package.sh         Genera un ZIP sin PHP en dist/
+LEEME.txt          Guía rápida para el usuario final
 INSTALACION.md     Guía de instalación y uso
 database.sqlite    Base de datos (se genera automáticamente)
 ```
@@ -188,7 +202,21 @@ Las vistas consumen los siguientes endpoints JSON:
 
 ## Paquete instalable
 
-Para entregar el producto al ingeniero o instalarlo en otro equipo:
+### Windows portable (recomendado para entregar)
+
+```bash
+./build-portable.sh
+```
+
+Se genera:
+
+```
+dist/SistemaTurnosConsultorios-Windows-x64.zip
+```
+
+Incluye PHP 8.5 para Windows x64, el instalador de Visual C++ y la aplicación. El usuario final solo descomprime y ejecuta `start.bat`; no necesita instalar PHP.
+
+### Paquete sin PHP
 
 ```bash
 ./package.sh
@@ -200,7 +228,9 @@ Se genera:
 dist/SistemaTurnosConsultorios.zip
 ```
 
-El ZIP incluye la aplicación, los scripts de inicio y la documentación. No incluye `.git` ni `database.sqlite`, por lo que la base se crea limpia en el primer acceso.
+Incluye la aplicación, los scripts de inicio y la documentación. Requiere PHP instalado en el equipo destino.
+
+Ningún ZIP incluye `.git`, `runtime/` (salvo el portable), `.cache/` ni `database.sqlite`, por lo que la base se crea limpia en el primer acceso.
 
 ## Reiniciar la base de datos
 

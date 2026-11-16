@@ -2,31 +2,51 @@
 
 Sistema de Turnos para Consultorios en PHP con SQLite. No requiere Composer, Apache ni MySQL.
 
+## Instalación rápida en Windows (recomendado)
+
+Usar el paquete `SistemaTurnosConsultorios-Windows-x64.zip`, que incluye PHP:
+
+1. Descomprimir el ZIP en una carpeta, por ejemplo `C:\SistemaTurnosConsultorios`.
+2. Hacer doble clic en `start.bat`.
+3. El navegador se abrirá en `http://localhost:8000/`.
+
+No hace falta instalar PHP ni Docker. La primera vez, Windows puede pedir permiso para instalar el componente **Microsoft Visual C++ Redistributable x64**; el propio `start.bat` lo ejecuta y solo es necesario aceptar. Si Windows muestra una advertencia de seguridad, permitir la ejecución de `start.bat`.
+
+Para detener el sistema, cerrar la ventana negra del servidor. No cerrarla mientras se esté usando el sistema.
+
 ## Contenido del paquete
 
 ```
-app/               Código de la aplicación (modelos, vistas, controladores y servicios)
-config/            Conexión y creación automática de la base de datos
-public/            Punto de entrada, estilos y JavaScript
-start.sh           Inicio en Linux / macOS
-start.bat          Inicio en Windows
-package.sh         Genera el ZIP instalable
-README.md          Documentación general
-INSTALACION.md     Esta guía
+app/                     Código de la aplicación (modelos, vistas, controladores y servicios)
+config/                  Conexión y creación automática de la base de datos
+public/                  Punto de entrada, estilos y JavaScript
+runtime/php/             PHP 8.5 para Windows x64 (solo en el paquete portable)
+runtime/vc_redist.x64.exe  Componente de Microsoft para Windows (solo en el paquete portable)
+start.sh                 Inicio en Linux / macOS
+start.bat                Inicio en Windows
+build-portable.sh        Genera el ZIP portable de Windows (repositorio)
+package.sh               Genera un ZIP sin PHP
+LEEME.txt                Guía rápida para el usuario final
+README.md                Documentación general
+INSTALACION.md           Esta guía
 ```
 
 La base de datos `database.sqlite` se crea automáticamente en el primer acceso.
 
 ## Requisitos
 
+Para el paquete portable de Windows: Windows 10 u 11 de 64 bits y un navegador moderno. No requiere instalar PHP.
+
+Para ejecutar desde el código fuente:
+
 - PHP 8.1 o superior.
-- Extensiones `pdo_sqlite` y `sqlite3`.
+- Extensiones `pdo_sqlite`, `sqlite3` y `mbstring`.
 - Un navegador moderno.
 
 Comprobar las extensiones:
 
 ```bash
-php -m | grep -E "pdo_sqlite|sqlite3"
+php -m | grep -E "pdo_sqlite|sqlite3|mbstring"
 ```
 
 En Windows, habilitar estas extensiones en `php.ini` quitando el punto y coma de:
@@ -34,16 +54,17 @@ En Windows, habilitar estas extensiones en `php.ini` quitando el punto y coma de
 ```ini
 extension=pdo_sqlite
 extension=sqlite3
+extension=mbstring
 ```
 
-## Instalación en Windows
+## Windows con PHP ya instalado
 
 1. Instalar PHP 8.1 o superior y agregar la carpeta de PHP al `PATH`.
 2. Descomprimir el ZIP en una carpeta, por ejemplo `C:\SistemaTurnosConsultorios`.
 3. Ejecutar `start.bat`.
 4. Abrir `http://localhost:8000/`.
 
-Si Windows muestra una advertencia de seguridad, permitir la ejecución del archivo.
+Si existe la carpeta `runtime\php`, `start.bat` usa ese PHP incluido; si no, usa el PHP del sistema.
 
 ## Instalación en Linux / macOS
 
@@ -140,11 +161,15 @@ Al volver a iniciar se crean el esquema y las cuentas iniciales.
 
 ### Windows no reconoce `php`
 
-Agregar la carpeta de PHP al `PATH` y abrir una terminal nueva. Verificar con:
+Esto solo aplica si se usa un paquete sin la carpeta `runtime/`. Usar el paquete portable o agregar la carpeta de PHP al `PATH` y abrir una terminal nueva. Verificar con:
 
 ```bat
 php -v
 ```
+
+### Windows no pudo iniciar PHP
+
+Aceptar la instalación de Microsoft Visual C++ Redistributable x64 cuando `start.bat` la solicite. Si el aviso no aparece, instalar manualmente `runtime\vc_redist.x64.exe` y volver a ejecutar `start.bat`.
 
 ### El puerto 8000 está ocupado
 
